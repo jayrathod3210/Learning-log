@@ -1,0 +1,37 @@
+{% extends "learning_logs/base.html" %}
+
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning log</title>
+</head>
+<body>
+
+<form method="post" action="{% url 'users:register' %}" class="form">
+{% csrf_token %}
+<div class="container">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+<div class="form-group">
+    <label for="exampleInputPassword1"> Confirm Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword2">
+  </div>
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">Log in</button>
+    {% endbuttons %}
+    <input type="hidden" name="next"  value="{% url 'learning_logs:index' %}" />
+</div>
+</form>
+
+</body>
+</html>
